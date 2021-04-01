@@ -1,0 +1,27 @@
+<div>
+  <mat-paginator id="matPaginator" [length]="paginator.source.length" [pageSizeOptions]="paginator.pageSizeOptions" [pageSize]="paginator.pageSize" (page)="pageChangeEvent($event)"></mat-paginator>
+</div>
+
+
+<div class="row">
+  <input [(ngModel)]="dimension" placeholder="Informe a Dimensão" type="text" />
+  <button mat-raised-button color="primary" (click)="save()">Criar Dimensão</button>
+</div>
+
+<div class="container">
+  <mat-card class="example-card" *ngFor="let rick of paginator.page;">
+    <mat-card-header>
+      <mat-card-title class="title">
+
+        <a [routerLink]="['/detail']" [queryParams]="{ id: rick.id}">
+          Rick
+        </a>
+
+      </mat-card-title>
+      <mat-card-subtitle>{{rick.dimension.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="img" src="https://http2.mlstatic.com/D_NQ_NP_958462-MLB29339548199_022019-O.jpg"
+         alt="Rick and Morty">
+  </mat-card>
+
+</div>
